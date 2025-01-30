@@ -9,6 +9,8 @@ import { FaGoogle } from "react-icons/fa";
 
 import { useAuth } from "../context/AuthContext";
 
+import Google from "../assets/google.png"
+
 const Login = () => {
   const [username, setUsername] = useState();
   const {login} = useAuth()
@@ -19,7 +21,7 @@ const Login = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center login-div">
+    <div className="w-full md:h-screen mt-28 md:mt-0 flex flex-col justify-center items-center login-div">
       <Sheet
         variant="outlined"
         className="max-w-96 flex flex-col gap-4 p-4 rounded-sm"
@@ -50,17 +52,22 @@ const Login = () => {
         <Divider orientation="horizental"></Divider>
         <div className="flex gap-4">
           <Button
-            color="neutral"
-            variant="soft"
-            startDecorator={<FaGithub />}
+            color="success"
+            variant="solid"
+            startDecorator={<FaGithub size={24} />}
             className="w-full"
-          ></Button>
+          >Github</Button>
           <Button
-            color="neutral"
-            variant="soft"
-            startDecorator={<FaGoogle />}
+            color="success"
+            variant="solid"
+            startDecorator={
+              <img
+              className="h-6"
+              src={Google}
+              ></img>
+            }
             className="w-full"
-          ></Button>
+          >Google</Button>
         </div>
         <Button onClick={handleLogin}>log in</Button>
         <div className="flex felx-row gap-2">
