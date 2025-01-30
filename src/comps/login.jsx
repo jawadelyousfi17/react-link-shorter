@@ -30,8 +30,10 @@ const Login = () => {
           startDecorator={<MdOutlineAlternateEmail />}
           size="md"
           placeholder="Username"
+          variant="soft"
         />
         <Input
+          variant="soft"
           startDecorator={<LuLockKeyhole />}
           size="md"
           placeholder="Password"

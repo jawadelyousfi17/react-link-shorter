@@ -1,13 +1,18 @@
-import { Option, Select, Button, Avatar } from "@mui/joy";
+import {
+  Option,
+  Select,
+  Button,
+  Avatar,
+  Dropdown,
+  MenuButton,
+  MenuItem,
+  Menu,
+} from "@mui/joy";
 import { CiLight } from "react-icons/ci";
 import { BsMoon } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FiUser } from "react-icons/fi";
 import { IoLogOutOutline } from "react-icons/io5";
-
-import Dropdown from "@mui/joy/Dropdown";
-import Menu from "@mui/joy/Menu";
-import MenuButton from "@mui/joy/MenuButton";
 
 import { useAuth } from "../context/AuthContext";
 
@@ -19,13 +24,73 @@ const Navbar = ({ mode, setMode }) => {
   const { user, logout } = useAuth();
 
   const handleLogout = () => {
-      logout()
-  }
+    logout();
+  };
 
   return (
-    <div className=" h-12 justify-between px-14 gap-2 flex items-center">
+    <div className=" h-12 justify-between px-4 md:px-14 gap-2 flex items-center">
       {user && (
-        <div className="flex gap-2">
+        <div className="flex md:hidden">
+          <Dropdown>
+            <MenuButton
+              variant="plain"
+              startDecorator={<FiUser />}
+              endDecorator={<MdKeyboardArrowDown />}
+            >
+              {user.name}
+            </MenuButton>
+            <Menu>
+              <Button
+                component="a"
+                variant="plain"
+                color="neutral"
+                href="#my-profile"
+                startDecorator={<FiUser />}
+                sx={{
+                  justifyContent: "flex-start",
+                }}
+              >
+                My account
+              </Button>{" "}
+              <Button
+                onClick={handleLogout}
+                variant="plain"
+                color="neutral"
+                startDecorator={<IoLogOutOutline />}
+                sx={{
+                  justifyContent: "flex-start",
+                }}
+              >
+                Log out
+              </Button>{" "}
+              <Button
+                sx={{
+                  justifyContent: "flex-start",
+                }}
+                component="a"
+                variant="plain"
+                color="neutral"
+                href="#as-link"
+              >
+                Settings
+              </Button>
+              <Button
+                sx={{
+                  justifyContent: "flex-start",
+                }}
+                component="a"
+                variant="plain"
+                color="neutral"
+                href="#as-link"
+              >
+                Dashboard
+              </Button>
+            </Menu>
+          </Dropdown>
+        </div>
+      )}
+      {user && (
+        <div className="gap-2 hidden md:flex">
           <Dropdown>
             <MenuButton
               variant="plain"
@@ -49,7 +114,7 @@ const Navbar = ({ mode, setMode }) => {
                 My account
               </Button>
               <Button
-              onClick={handleLogout}
+                onClick={handleLogout}
                 variant="plain"
                 color="neutral"
                 startDecorator={<IoLogOutOutline />}
@@ -76,9 +141,9 @@ const Navbar = ({ mode, setMode }) => {
         </div>
       )}
 
-      {!user && <div className="flex gap-2">
-        
-        <Button
+      {!user && (
+        <div className="flex gap-2">
+          <Button
             component="a"
             variant="plain"
             color="primneutralary"
@@ -94,7 +159,8 @@ const Navbar = ({ mode, setMode }) => {
           >
             Sign up
           </Button>
-        </div>}
+        </div>
+      )}
 
       <Select
         startDecorator={mode === "light" ? <CiLight /> : <BsMoon />}
