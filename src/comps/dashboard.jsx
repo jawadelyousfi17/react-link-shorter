@@ -20,7 +20,7 @@ import { MdRefresh } from "react-icons/md";
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col gap-4 p-8 w-fit mx-auto">
+    <div className="flex flex-col gap-4 md:p-8 p-1 w-fit mx-auto">
       <div className="flex gap-2 justify-end">
         <Button variant="soft" startDecorator={<FaPlus />}>
           Create link
