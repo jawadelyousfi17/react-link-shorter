@@ -20,16 +20,17 @@ import { MdRefresh } from "react-icons/md";
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col gap-4 md:p-8 p-1 w-fit mx-auto">
-      <div className="flex gap-2 justify-end">
-        <Button variant="soft" startDecorator={<FaPlus />}>
+    <div className="flex flex-col gap-4 md:p-8 p-4 w-fit mx-auto">
+      <div className="flex gap-2 justify-between items-center">
+        <span className="text-3xl font-bold">42 links</span>
+        <Button variant="solid" startDecorator={<FaPlus />}>
           Create link
         </Button>
       </div>
-      <div className="flex gap-2">
-        <Input variant="soft" startDecorator={<IoSearch />} placeholder="Search link" />
+      <div className="flex gap-2 flex-wrap">
+        <Input variant="outlined" className=" grow-1" startDecorator={<IoSearch />} placeholder="Search link" />
         <Dropdown>
-          <MenuButton variant="soft">Sort</MenuButton>
+          <MenuButton variant="outlined">Sort</MenuButton>
           <Menu>
             <MenuItem>
               <ListItemDecorator>
@@ -58,7 +59,9 @@ const Dashboard = () => {
             </MenuItem>
           </Menu>
         </Dropdown>
-        <Button variant="soft" startDecorator={<MdRefresh />}>Refresh</Button>
+        <div className="hidden md:flex">
+        <Button  variant="soft" startDecorator={<MdRefresh />}>Refresh</Button>
+        </div>
       </div>
       <LinkCard></LinkCard>
 	  <LinkCard></LinkCard>

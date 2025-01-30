@@ -26,7 +26,7 @@ const LinkCard = () => {
   return (
     <Sheet
       variant="soft"
-	  color="neutral"
+      color="neutral"
       className="flex flex-col  p-6 link-card rounded-md"
     >
       <div className="flex flex-col justify-start items-start gap-2 md:flex-row md:justify-between">
