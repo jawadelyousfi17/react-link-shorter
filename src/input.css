@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+.login-div {
+	/* background: url("./assets/bg-light.jpg"); */
+	background-size: 100%;
+}
+
+.link-card {
+	max-width: 60rem;
+}
