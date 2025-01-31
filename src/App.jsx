@@ -34,7 +34,8 @@ function App() {
       <Router>
         <CssBaseline />
         <Navbar mode={mode} setMode={setMode}></Navbar>
-        <Divider orientation="horizental"></Divider>
+        <div className="h-10"></div>
+        <Divider orientation=""></Divider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

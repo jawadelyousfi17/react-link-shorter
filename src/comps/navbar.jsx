@@ -5,9 +5,12 @@ import {
   Avatar,
   Dropdown,
   MenuButton,
-  MenuItem,
+  Sheet,
   Menu,
 } from "@mui/joy";
+
+import { useColorScheme } from "@mui/joy/styles";
+
 import { CiLight } from "react-icons/ci";
 import { BsMoon } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -17,6 +20,8 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { useAuth } from "../context/AuthContext";
 
 const Navbar = ({ mode, setMode }) => {
+  const { systemMode } = useColorScheme()
+  const effectiveMode = mode === "system" ? systemMode : mode
   const handleChange = (event, newValue) => {
     setMode(newValue);
   };
@@ -28,7 +33,21 @@ const Navbar = ({ mode, setMode }) => {
   };
 
   return (
-    <div className=" h-12 justify-between px-4 md:px-14 gap-2 flex items-center">
+
+    <Sheet className={`${effectiveMode === "dark" ? "nav-dark" : "nav-light"} h-12 justify-between`}
+        sx={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 1100, 
+        backdropFilter: "blur(10px)", 
+        backgroundColor: effectiveMode === "dark" ? "rgba(0, 0, 0, 0.4)" : "rgba(255, 255, 255, 0.6)", // Theme-aware transparency
+        padding: "8px 16px",
+        display: "flex",
+        alignItems: "center",
+      }}  
+    >
       {user && (
         <div className="flex md:hidden">
           <Dropdown>
@@ -171,7 +190,7 @@ const Navbar = ({ mode, setMode }) => {
         <Option value="dark">Dark</Option>
         <Option value="light">Light </Option>
       </Select>
-    </div>
+    </Sheet>
   );
 };
 
