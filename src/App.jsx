@@ -15,6 +15,8 @@ import Login from "./comps/login";
 import Signup from "./comps/signup";
 import Dashboard from "./comps/dashboard";
 import Home from "./comps/home";
+import Create from "./comps/links/create";
+import Edit from "./comps/links/edit";
 
 function App() {
   const { mode, setMode } = useColorScheme();
@@ -37,10 +39,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/edit/:id" element={<Edit />} />
+
           <Route
             path="/dashboard"
             element={
+              <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
             }
           />
         </Routes>

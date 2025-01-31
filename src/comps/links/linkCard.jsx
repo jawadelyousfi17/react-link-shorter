@@ -24,7 +24,7 @@ import { BsCalendarDate } from "react-icons/bs";
 
 const LinkCard = () => {
   return (
-    <Sheet
+    <div
       variant="soft"
       color="neutral"
       className="flex flex-col  p-6 link-card rounded-md"
@@ -32,7 +32,7 @@ const LinkCard = () => {
       <div className="flex flex-col justify-start items-start gap-2 md:flex-row md:justify-between">
         <div className="flex gap-4">
           <div className=" hidden sm:flex">
-            <Avatar alt="Youtube" color="neutral" variant="neutral"></Avatar>
+            <Avatar alt="Youtube" color="neutral" variant="outlined" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"></Avatar>
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-xl font-bold">My files</span>
@@ -53,7 +53,7 @@ const LinkCard = () => {
               </div>
 
               <div className="flex gap-2">
-                <Chip variant="outlined">Web project#1</Chip>
+                <Chip variant="soft" color="success">Web project#1</Chip>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@ const LinkCard = () => {
           >
             Share
           </Button>
-          <IconButton variant="outlined" color="neutral">
+          <IconButton component="a" href="/edit/6876638863688" variant="outlined" color="neutral">
             <MdModeEdit />
           </IconButton>
 
@@ -92,12 +92,6 @@ const LinkCard = () => {
               </MenuItem>
               <MenuItem>
                 <ListItemDecorator>
-                  <IoLinkOutline />
-                </ListItemDecorator>
-                View link details
-              </MenuItem>
-              <MenuItem>
-                <ListItemDecorator>
                   <MdQrCode />
                 </ListItemDecorator>
                 Qr code
@@ -106,7 +100,7 @@ const LinkCard = () => {
           </Dropdown>
         </div>
       </div>
-    </Sheet>
+    </div>
   );
 };
 export default LinkCard;

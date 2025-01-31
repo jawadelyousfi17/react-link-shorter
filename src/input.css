@@ -6,7 +6,24 @@
 	background-size: 100%;
 }
 
-.link-card {
+.link-card, .link-create {
+	border: 1px solid rgba(255, 255, 255, 0.137);
+	outline:1px solid rgba(0, 0, 0, 0.137) ;
+	box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 	/* width: 100%; */
-	/* max-width: 60rem; */
+	max-width: 60rem;
+}
+
+.link-create {
+	max-width: 40rem;
+}
+
+.link-prnt {
+	max-width: 40rem;
+
+}
+
+.btm {
+	border-top: 1px solid rgba(255, 255, 255, 0.196);
+	position: fixed;
 }

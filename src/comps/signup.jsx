@@ -70,11 +70,12 @@ const Signup = () => {
     >
       create an account
       {error && (
-        <Alert variant="soft" color="warning">
+        <Alert variant="outlined" color="warning">
           please correct those fields
         </Alert>
       )}
       <Input
+      variant="outlined"
         color={errors.email ? "danger" : "neutral"}
         onChange={(e) => {
           setEmail(e.target.value);
@@ -85,6 +86,8 @@ const Signup = () => {
         placeholder="Email"
       />
       <Input
+            variant="outlined"
+
         color={errors.password ? "danger" : "neutral"}
         onChange={(e) => {
           setPassword(e.target.value);
@@ -104,7 +107,8 @@ const Signup = () => {
         }
       />
       <div className="flex flex-col gap-1">
-        password strength
+        <span className="text-sm">        password strength
+</span>
         <LinearProgress
           color={passStrngth}
           determinate
@@ -113,6 +117,8 @@ const Signup = () => {
         />
       </div>
       <Input
+            variant="outlined"
+
         color={errors.name ? "danger" : "neutral"}
         onChange={(e) => {
           setName(e.target.value);
@@ -125,6 +131,8 @@ const Signup = () => {
       <div className="flex flex-col gap-1">
         Birth date
         <Input
+              variant="outlined"
+
           color={errors.date ? "danger" : "neutral"}
           onChange={(e) => {
             setDate(e.target.value);
@@ -137,14 +145,14 @@ const Signup = () => {
       <Divider orientation="horizental"></Divider>
       <div className="flex gap-4">
         <Button
-          color="neutral"
-          variant="soft"
+          color="success"
+          variant="solid"
           startDecorator={<FaGithub />}
           className="w-full"
         ></Button>
         <Button
-          color="neutral"
-          variant="soft"
+          color="success"
+          variant="solid"
           startDecorator={<FaGoogle />}
           className="w-full"
         ></Button>
@@ -152,7 +160,7 @@ const Signup = () => {
       <Button onClick={handleSignup}>Signup</Button>
       <div className="flex felx-row gap-2">
         Already have an account ?
-        <Chip component="a" href="/login" variant="soft">
+        <Chip component="a" href="/login" variant="outlined">
           Log in.
         </Chip>
       </div>

@@ -23,7 +23,7 @@ const Dashboard = () => {
     <div className="flex flex-col gap-4 md:p-8 p-4 w-fit mx-auto">
       <div className="flex gap-2 justify-between items-center">
         <span className="text-3xl font-bold">42 links</span>
-        <Button variant="solid" startDecorator={<FaPlus />}>
+        <Button component="a" href="/create" variant="solid" startDecorator={<FaPlus />}>
           Create link
         </Button>
       </div>

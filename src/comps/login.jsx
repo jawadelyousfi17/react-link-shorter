@@ -32,10 +32,10 @@ const Login = () => {
           startDecorator={<MdOutlineAlternateEmail />}
           size="md"
           placeholder="Username"
-          variant="soft"
+          variant="outlined"
         />
         <Input
-          variant="soft"
+          variant="outlined"
           startDecorator={<LuLockKeyhole />}
           size="md"
           placeholder="Password"
@@ -52,14 +52,14 @@ const Login = () => {
         <Divider orientation="horizental"></Divider>
         <div className="flex gap-4">
           <Button
-            color="success"
-            variant="solid"
+            color="primary"
+            variant="outlined"
             startDecorator={<FaGithub size={24} />}
             className="w-full"
           >Github</Button>
           <Button
-            color="success"
-            variant="solid"
+            color="primary"
+            variant="outlined"
             startDecorator={
               <img
               className="h-6"
@@ -72,7 +72,7 @@ const Login = () => {
         <Button onClick={handleLogin}>log in</Button>
         <div className="flex felx-row gap-2">
           Don't have an acoount ?
-          <Chip component="a" href="/signup" variant="soft">
+          <Chip component="a" href="/signup" variant="outlined">
             create one.
           </Chip>
         </div>
