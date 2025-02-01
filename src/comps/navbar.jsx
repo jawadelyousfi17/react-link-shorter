@@ -18,6 +18,7 @@ import { FiUser } from "react-icons/fi";
 import { IoLogOutOutline } from "react-icons/io5";
 
 import { useAuth } from "../context/AuthContext";
+import { useEffect, useState } from "react";
 
 const Navbar = ({ mode, setMode }) => {
   const { systemMode } = useColorScheme()
@@ -26,11 +27,13 @@ const Navbar = ({ mode, setMode }) => {
     setMode(newValue);
   };
 
-  const { user, logout } = useAuth();
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null)
+  const {isAuth, logout} = useAuth()
 
-  const handleLogout = () => {
-    logout();
-  };
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('user')) || null)
+  }, [isAuth])
+
 
   return (
 
@@ -72,7 +75,7 @@ const Navbar = ({ mode, setMode }) => {
                 My account
               </Button>{" "}
               <Button
-                onClick={handleLogout}
+                onClick={logout}
                 variant="plain"
                 color="neutral"
                 startDecorator={<IoLogOutOutline />}
@@ -133,7 +136,7 @@ const Navbar = ({ mode, setMode }) => {
                 My account
               </Button>
               <Button
-                onClick={handleLogout}
+                onClick={logout}
                 variant="plain"
                 color="neutral"
                 startDecorator={<IoLogOutOutline />}

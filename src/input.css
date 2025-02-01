@@ -11,7 +11,12 @@
 	outline:1px solid rgba(0, 0, 0, 0.137) ;
 	box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 	/* width: 100%; */
-	max-width: 60rem;
+	max-width: 50rem;
+}
+
+.load {
+	width: 50rem;
+	background-color: aqua;
 }
 
 .link-create {

@@ -37,7 +37,11 @@ function App() {
         <div className="h-10"></div>
         <Divider orientation=""></Divider>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/"  element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/create" element={<Create />} />

@@ -1,4 +1,4 @@
-import { Button, Input, Sheet, Divider, Chip } from "@mui/joy";
+import { Button, Input, Sheet, Divider, Chip, Alert } from "@mui/joy";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { LuLockKeyhole } from "react-icons/lu";
@@ -12,11 +12,12 @@ import { useAuth } from "../context/AuthContext";
 import Google from "../assets/google.png"
 
 const Login = () => {
-  const [username, setUsername] = useState();
-  const {login} = useAuth()
+  const [username, setUsername] = useState("jawad.pro17@gmail.com");
+  const [password, setPassword] = useState("jawad")
+  const { login, loading, error } = useAuth()
   const navigate = useNavigate()
-  const handleLogin = () => {
-      login({name : username || "jel-yous"})
+  const handleLogin = async () => {
+      await login({email : username, password})
       navigate("/dashboard")
   }
 
@@ -27,7 +28,9 @@ const Login = () => {
         className="max-w-96 flex flex-col gap-4 p-4 rounded-sm"
       >
         Login to your account
-        <Input
+{       error && <Alert variant="soft" color="danger">{error}</Alert>
+}        <Input
+        value={username}
         onChange={(e) => setUsername(e.target.value)}
           startDecorator={<MdOutlineAlternateEmail />}
           size="md"
@@ -35,6 +38,7 @@ const Login = () => {
           variant="outlined"
         />
         <Input
+        value={password}
           variant="outlined"
           startDecorator={<LuLockKeyhole />}
           size="md"
@@ -69,7 +73,7 @@ const Login = () => {
             className="w-full"
           >Google</Button>
         </div>
-        <Button onClick={handleLogin}>log in</Button>
+        <Button loading={loading} onClick={handleLogin}>log in</Button>
         <div className="flex felx-row gap-2">
           Don't have an acoount ?
           <Chip component="a" href="/signup" variant="outlined">

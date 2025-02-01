@@ -22,9 +22,10 @@ import { MdQrCode } from "react-icons/md";
 import { MdOutlineBarChart } from "react-icons/md";
 import { BsCalendarDate } from "react-icons/bs";
 
-const LinkCard = () => {
+const LinkCard = ({name, url, loading}) => {
+
   return (
-    <div
+    <Sheet
       variant="soft"
       color="neutral"
       className="flex flex-col  p-6 link-card rounded-md"
@@ -32,10 +33,10 @@ const LinkCard = () => {
       <div className="flex flex-col justify-start items-start gap-2 md:flex-row md:justify-between">
         <div className="flex gap-4">
           <div className=" hidden sm:flex">
-            <Avatar alt="Youtube" color="neutral" variant="outlined" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"></Avatar>
+            <Avatar alt="Youtube" color="neutral" variant="outlined" src={url}></Avatar>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-xl font-bold">My files</span>
+            <span className="text-xl font-bold">{name}</span>
             <a href="a" className="text-md text-blue-400 font-bold">
               bitly.co/6dd
             </a>
@@ -100,7 +101,7 @@ const LinkCard = () => {
           </Dropdown>
         </div>
       </div>
-    </div>
+    </Sheet>
   );
 };
 export default LinkCard;
