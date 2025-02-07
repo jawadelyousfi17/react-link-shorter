@@ -27,7 +27,7 @@ const Navbar = ({ mode, setMode }) => {
     setMode(newValue);
   };
 
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null)
+  const [user, setUser] = useState(null)
   const {isAuth, logout} = useAuth()
 
   useEffect(() => {
